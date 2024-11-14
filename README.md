@@ -39,3 +39,20 @@ For each test case, the program outputs two space-separated integers:
 - 1 ≤ t ≤ 10
 - 1 ≤ n ≤ 10^5
 - -10^4 ≤ arr[i] ≤ 10^4
+
+## Code
+def maxSubarray(arr):
+    # Write your code here
+    #1. max_subarray sum
+    #2. max_subsequence sum
+        #sum all of positives
+        #if all negative return max value
+    max_subarray_sum = arr[0]
+    current_sum = arr[0]
+    
+    for num in arr[1:]:
+        current_sum = max(num, current_sum + num) 
+        max_subarray_sum = max(max_subarray_sum, current_sum) 
+        
+        max_subsequence_sum = sum(num for num in arr if num > 0) or max(arr)
+    return max_subarray_sum, max_subsequence_sum
